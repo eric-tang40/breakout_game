@@ -52,9 +52,9 @@ __Paddle__
 - Instance variables:
   - x,y, plength, pwidth
 - METHODS
-  - display
-  - move
-  - hit
+  - display (show paddle)
+  - move (moves paddle)
+  - hit (called when ball hits paddle)
 
 __Ball__
 - Instance variables:
