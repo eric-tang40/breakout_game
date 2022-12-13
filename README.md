@@ -62,11 +62,18 @@ Ball
   
 Block
 - Instance variables:
-  - cx, cy, blength, bwidth, color
+  - cx, cy, blength, bwidth, color, alive
 - METHODS
   - display
   - move
   - reset
   - destroy
   - score
+
+Field
+- Instance Variables:
+  - Block[][] grid
+  - numRows, numCols
+- METHODS
+  - showBlocks
 
