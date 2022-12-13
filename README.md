@@ -48,7 +48,7 @@ Keyboard Commands:
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assingments, you will have to add new features to them.
 
-Paddle
+__Paddle__
 - Instance variables:
   - x,y, plength, pwidth
 - METHODS
@@ -56,7 +56,7 @@ Paddle
   - move
   - hit
 
-Ball
+__Ball__
 - Instance variables:
   - cx, cy, xvelocity, yvelocity, radius
 - METHODS
@@ -67,7 +67,7 @@ Ball
   - bottom bounce
   - onBall
   
-Block
+__Block__
 - Instance variables:
   - cx, cy, blength, bwidth, color, alive
 - METHODS
@@ -77,7 +77,7 @@ Block
   - destroy
   - score
 
-Field
+__Field__
 - Instance Variables:
   - Block[][] grid
   - numRows, numCols
