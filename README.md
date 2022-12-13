@@ -60,27 +60,27 @@ __Ball__
 - Instance variables:
   - cx, cy, xvelocity, yvelocity, radius
 - METHODS
-  - reset
-  - display
-  - move
-  - top bounce
-  - bottom bounce
-  - onBall
+  - reset (put the ball back in its starting position)
+  - display (show ball)
+  - move (moves ball)
+  - blockBounce (what the ball does when the ball hits a block)
+  - paddleBounce (what the ball does when the ball hits the paddle)
+  - onBall (find position of ball)
   
 __Block__
 - Instance variables:
   - cx, cy, blength, bwidth, color, alive
 - METHODS
-  - display
-  - move
-  - reset
-  - destroy
-  - score
+  - display (show individual block)
+  - move (for moving blocks as an extra feature)
+  - reset (display blocks in initial position)
+  - destroy (called when ball hits block, removes instance of block)
+  - score (keep track of how many blocks destroyed)
 
 __Field__
 - Instance Variables:
-  - Block[][] grid
+  - Block[][] grid 
   - numRows, numCols
 - METHODS
-  - showBlocks
+  - showBlocks (display all blocks at once)
 
