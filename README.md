@@ -21,12 +21,19 @@ This project will be completed in phases. The first phase will be to work on thi
 ### Necessary Features
 What are the core features that your game should have? These should be things that __must__ be implemented in order to make the game playable, not extra features that could be added to make the game more fun to play.
 
-__A paddle, which is moved by the user, to bounce the ball off, a ball, bricks that disappear when hit by the ball, and score counter.__
+- __a paddle moved by the user to bounce the ball off__
+- __a ball__
+- __bricks that disappear when hit by the ball__
+- __score counter__
 
 ### Extra Features
 What are some features that are not essential to gameplay, but you would like to see (provided you have time after completing the necessary features.
 
-__Color for the ball/bricks, moving bricks, multiple balls, power-ups, option to speed up gameplay.__
+- __Color for the ball/bricks/paddle__
+- __moving bricks__ 
+- __multiple balls__ 
+- __power-ups__
+- __option to speed up gameplay.__
 
 
 ### Controls
