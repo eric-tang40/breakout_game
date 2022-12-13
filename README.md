@@ -62,7 +62,7 @@ Ball
   
 Block
 - Instance variables:
-  - cx, cy, blength, bwidth
+  - cx, cy, blength, bwidth, color
 - METHODS
   - display
   - move
