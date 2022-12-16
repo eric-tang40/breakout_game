@@ -10,16 +10,16 @@ class Block {
   }
   
   void reset() {
-    bx = 500;
+    bx = 450;
     by = 200;
     bwidth = BLOCK_WIDTH;
-    bheight = height/10;
+    bheight = BLOCK_HEIGHT;
     c = 255;
     alive = true;
   }
   
   void display() {
-    rect(bx,by,bwidth, bheight);
+    rect(bx,by, bwidth, bheight);
   }
   
   void destroy() {

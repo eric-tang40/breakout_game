@@ -1,7 +1,8 @@
 int PADDLE_WIDTH = 100;
 int PADDLE_HEIGHT = 25;
 int BALL_SIZE = 10;
-int BLOCK_WIDTH = width/20;
+int BLOCK_WIDTH = 270;
+int BLOCK_HEIGHT = 270;
 Paddle p;
 Ball b1;
 Block block1;
@@ -26,6 +27,9 @@ void draw() {
   
   block1.display();
   if(b1.onBlock(block1.bx, block1.by)) {
-    b1.blockBounce();
+    b1.blockBounce(0);
+  }
+  if(b1.onBlockSide(block1.bx, block1.by)) {
+    b1.blockBounce(1);
   }
 }
