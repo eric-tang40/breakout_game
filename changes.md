@@ -29,4 +29,8 @@
 #### Paddle
 - Remove hit() method
 
+#### Ball
+- Added onBlockSide to check if ball hit the side 
+- Added a variable to blockBounce to differentiate between hits on the side and top
+
 
