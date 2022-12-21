@@ -27,12 +27,12 @@ class Arena {
             b1.blockBounce(0);
             grid[r][i].destroy();
           }
-        if(b1.onBlockSide(grid[r][i].bx, grid[r][i].by)) {
+        }
+        else if(b1.onBlockSide(grid[r][i].bx, grid[r][i].by)) {
            if(grid[r][i].alive) {
              b1.blockBounce(1);
              grid[r][i].destroy();
         }
-       }
       }
      }
     }

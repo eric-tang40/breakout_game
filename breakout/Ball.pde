@@ -1,8 +1,9 @@
 class Ball {
 
   int cx, cy;
-  int xvelocity, yvelocity;
+  float xvelocity, yvelocity;
   int radius;
+  float dir;
 
   //constructor
   Ball() {
@@ -23,13 +24,14 @@ class Ball {
     cy = height-250;
     xvelocity = 0; 
     yvelocity = 0;
+    dir = 45;
     //xvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
     //yvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
   }//resetBall
   
   void run() {
-    xvelocity = 3;
-    yvelocity = 10;
+    xvelocity = 3 ;
+    yvelocity = 5;
   }
 
   void display() {
@@ -58,11 +60,10 @@ class Ball {
 
   void blockBounce(int x) {
     if(x == 0) {
-      yvelocity*= -1;
-      cy += yvelocity;
+      yvelocity *= cos(radians(dir));
     }
     if(x==1) {      
-      xvelocity*= -1;
+      xvelocity *= sin(radians(dir));
       cx += xvelocity;
     }
   }//ybounce
@@ -89,10 +90,10 @@ class Ball {
   boolean onBlock(int x, int y) {
     for(int i=0; i < BLOCK_SIZE; i++){
       float top = dist(this.cx,this.cy, x+i, y);
+      float bottom = dist(this.cx,this.cy, x+i, y+BLOCK_SIZE-10);
       if(top<=this.radius){
         return true;
       }
-      float bottom = dist(this.cx,this.cy, x+i, y+BLOCK_SIZE-10);
       if(bottom<=this.radius){
         return true;
       }
@@ -100,13 +101,13 @@ class Ball {
     return false;
   }
     
-    boolean onBlockSide(int x, int y) {
+  boolean onBlockSide(int x, int y) {
       for(int i=0; i < BLOCK_SIZE; i++){
         float left = dist(this.cx,this.cy, x, y+i);
           if(left<=this.radius){
             return true;
           }
-        float right = dist(this.cx,this.cy, x+BLOCK_SIZE, y+i);
+        float right = dist(this.cx,this.cy, x+BLOCK_SIZE+this.radius, y+i);
           if(right<=this.radius){
             return true;
         }
