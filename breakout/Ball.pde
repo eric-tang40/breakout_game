@@ -20,12 +20,17 @@ class Ball {
 
   void reset() {
     cx = width/2;
-    cy = height-100;
-    xvelocity = 10; 
-    yvelocity = -10;
+    cy = height-250;
+    xvelocity = 0; 
+    yvelocity = 0;
     //xvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
     //yvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
   }//resetBall
+  
+  void run() {
+    xvelocity = 3;
+    yvelocity = 10;
+  }
 
   void display() {
     circle(cx, cy, radius * 2);
@@ -40,6 +45,7 @@ class Ball {
     }
     if(cy >= (height-1-radius)) {
       this.reset();
+      a.reset();
     }
     cx+= xvelocity;
     cy+= yvelocity;
@@ -81,12 +87,12 @@ class Ball {
   }
   
   boolean onBlock(int x, int y) {
-    for(int i=0; i < BLOCK_WIDTH; i++){
+    for(int i=0; i < BLOCK_SIZE; i++){
       float top = dist(this.cx,this.cy, x+i, y);
       if(top<=this.radius){
         return true;
       }
-      float bottom = dist(this.cx,this.cy, x+i, y+BLOCK_HEIGHT-10);
+      float bottom = dist(this.cx,this.cy, x+i, y+BLOCK_SIZE-10);
       if(bottom<=this.radius){
         return true;
       }
@@ -95,12 +101,12 @@ class Ball {
   }
     
     boolean onBlockSide(int x, int y) {
-      for(int i=0; i < BLOCK_WIDTH; i++){
+      for(int i=0; i < BLOCK_SIZE; i++){
         float left = dist(this.cx,this.cy, x, y+i);
           if(left<=this.radius){
             return true;
           }
-        float right = dist(this.cx,this.cy, x+BLOCK_WIDTH, y+i);
+        float right = dist(this.cx,this.cy, x+BLOCK_SIZE, y+i);
           if(right<=this.radius){
             return true;
         }

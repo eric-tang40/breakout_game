@@ -10,7 +10,7 @@ class Paddle {
     px = width/2;
     py = height-50;
   }//default constructor
-
+  
   void display() {
     rect(px,py,pwidth,pheight);
   }//display
