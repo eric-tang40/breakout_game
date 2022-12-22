@@ -13,7 +13,7 @@ class Arena {
     for (int r=0; r<grid.length; r++) {
       for(int i=0; i<grid[r].length; i++) { 
         // set bx and by for each block
-        grid[r][i] = new Block(r*BLOCK_SIZE, 75 + i*BLOCK_SIZE, BLOCK_SIZE); 
+        grid[r][i] = new Block(r*BLOCK_SIZE, 100 + i*BLOCK_SIZE, BLOCK_SIZE); 
       }
     } 
   }
@@ -24,7 +24,7 @@ class Arena {
         grid[r][i].display();// to display each block
         if(grid[r][i].onBlock(b1)) {
           if(grid[r][i].alive) {
-            b1.blockBounce();
+            grid[r][i].blockBounce();
             grid[r][i].destroy();
           }
         }

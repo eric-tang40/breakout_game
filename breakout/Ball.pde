@@ -12,18 +12,18 @@ class Ball {
     reset();
   }//default constructor
 
-  //Ball(int x, int y) {
-  //  radius = BALL_SIZE;
-  //  cx = x;
-  //  cy = y;
-  //  xvelocity = int(random(5)+1) * (-1 * int(random(2+1)));
-  //  yvelocity = int(random(5)+1) * (-1 * int(random(2+1)));
-  //}//position constructor
+  Ball(int x, int y) {
+    radius = BALL_SIZE;
+    cx = x;
+    cy = y;
+    xvelocity = 5;
+    yvelocity = 5;
+  }//position constructor
 
   void reset() {
-    xspeed = 14;
+    xspeed = 10;
     cx = width/2;
-    cy = height-200;
+    cy = height-150;
     xvelocity = 0; 
     yvelocity = 0;
     d = 135;
@@ -32,9 +32,11 @@ class Ball {
   void run() {
     xvelocity = xspeed * sin(radians(d));
     yvelocity = xspeed * cos(radians(d));
+    curPlaying = true;
   }
 
   void display() {
+    fill(125,255,21,100);
     circle(cx, cy, radius * 2);
   }//display
 
@@ -47,35 +49,41 @@ class Ball {
       yvelocity*= -1;
       cy += yvelocity;
     }
-    if(cy >= (height-1-radius)) {
+    if(cy >= (p.py + this.radius/2)) {
       this.reset();
       a.reset();
+      isLost = true;
+      isPlaying = false;
+      curPlaying = false;
+      score = 0;
     }
     cx+= xvelocity;
     cy+= yvelocity;
   }//moveBall
 
   void paddleBounce() {
-    //int angle;
+    float distance;
+    float angle;
     if(b1.cx > p.px && b1.cx < p.px + PADDLE_WIDTH/2) {
-      xvelocity = -xspeed * sin(radians(135));
-      yvelocity = -xspeed * cos(radians(135));
+      distance = b1.cx- p.px;
+      angle = -0.6 * distance + 135;
+      xvelocity = xspeed * cos(radians(angle));
+      yvelocity = xspeed * sin(radians(angle));
     }
     else if (b1.cx > p.px + PADDLE_WIDTH/2 && b1.cx < p.px + PADDLE_WIDTH) {
-      xvelocity = xspeed * sin(radians(45));
-      yvelocity = xspeed * cos(radians(45));
+      distance = (b1.cx-PADDLE_WIDTH/2)- p.px; //distance between middle of paddle and ball
+      angle = -0.643 * distance + 90;
+      xvelocity = xspeed * cos(radians(angle));
+      yvelocity = xspeed * sin(radians(angle));
     }
     else { 
-      xvelocity = xspeed * sin(radians(90));
-      yvelocity = xspeed * cos(radians(90));
+      angle = 90;
+      xvelocity = xspeed * cos(radians(angle));
+      yvelocity = xspeed * sin(radians(angle));
     }
     yvelocity *= -1;
     cy += yvelocity;
   }//xbounce
-
-  void blockBounce() {
-    yvelocity *= -1;
-  }//ybounce
 
   void changeSpeed(int x, int y) {
     xvelocity+= x;

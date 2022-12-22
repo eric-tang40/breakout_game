@@ -12,6 +12,7 @@ class Paddle {
   }//default constructor
   
   void display() {
+    fill(125,255,21,100);
     rect(px,py,pwidth,pheight);
   }//display
 
