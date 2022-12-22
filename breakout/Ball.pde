@@ -2,8 +2,9 @@ class Ball {
 
   int cx, cy;
   float xvelocity, yvelocity;
+  int xspeed;
   int radius;
-  float dir;
+  float d;
 
   //constructor
   Ball() {
@@ -20,18 +21,17 @@ class Ball {
   //}//position constructor
 
   void reset() {
+    xspeed = 14;
     cx = width/2;
-    cy = height-250;
+    cy = height-200;
     xvelocity = 0; 
     yvelocity = 0;
-    dir = 45;
-    //xvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
-    //yvelocity = int(random(5)+1) * (-1 * int(random(2)+1));
+    d = 135;
   }//resetBall
   
   void run() {
-    xvelocity = 3 ;
-    yvelocity = 5;
+    xvelocity = xspeed * sin(radians(d));
+    yvelocity = xspeed * cos(radians(d));
   }
 
   void display() {
@@ -39,11 +39,13 @@ class Ball {
   }//display
 
   void move() {
-    if (cx <= radius || cx >= (width - 1 - radius)) {
+    if (cx + radius/2 <= radius || cx - radius/2 >= (width - 1 - radius)) {
       xvelocity*= -1;
+      cx += xvelocity;
     }
     if (cy <= radius) {
       yvelocity*= -1;
+      cy += yvelocity;
     }
     if(cy >= (height-1-radius)) {
       this.reset();
@@ -54,64 +56,29 @@ class Ball {
   }//moveBall
 
   void paddleBounce() {
-    yvelocity*= -1;
+    //int angle;
+    if(b1.cx > p.px && b1.cx < p.px + PADDLE_WIDTH/2) {
+      xvelocity = -xspeed * sin(radians(135));
+      yvelocity = -xspeed * cos(radians(135));
+    }
+    else if (b1.cx > p.px + PADDLE_WIDTH/2 && b1.cx < p.px + PADDLE_WIDTH) {
+      xvelocity = xspeed * sin(radians(45));
+      yvelocity = xspeed * cos(radians(45));
+    }
+    else { 
+      xvelocity = xspeed * sin(radians(90));
+      yvelocity = xspeed * cos(radians(90));
+    }
+    yvelocity *= -1;
     cy += yvelocity;
   }//xbounce
 
-  void blockBounce(int x) {
-    if(x == 0) {
-      yvelocity *= cos(radians(dir));
-    }
-    if(x==1) {      
-      xvelocity *= sin(radians(dir));
-      cx += xvelocity;
-    }
+  void blockBounce() {
+    yvelocity *= -1;
   }//ybounce
 
   void changeSpeed(int x, int y) {
     xvelocity+= x;
     yvelocity+= y;
   }//changeSpeed
-
-  //boolean onBall(int x, int y) {
-  //  float d = dist(x, y, cx, cy);
-  //  return d <= radius;
-  //}//onBall
-  boolean onPaddle(int x, int y) {
-    for(int i=0; i < PADDLE_WIDTH; i++){
-      float d = dist(this.cx,this.cy, x+i, y);
-      if(d<=this.radius){
-        return true;
-      }
-    }
-    return false;
-  }
-  
-  boolean onBlock(int x, int y) {
-    for(int i=0; i < BLOCK_SIZE; i++){
-      float top = dist(this.cx,this.cy, x+i, y);
-      float bottom = dist(this.cx,this.cy, x+i, y+BLOCK_SIZE-10);
-      if(top<=this.radius){
-        return true;
-      }
-      if(bottom<=this.radius){
-        return true;
-      }
-    }
-    return false;
-  }
-    
-  boolean onBlockSide(int x, int y) {
-      for(int i=0; i < BLOCK_SIZE; i++){
-        float left = dist(this.cx,this.cy, x, y+i);
-          if(left<=this.radius){
-            return true;
-          }
-        float right = dist(this.cx,this.cy, x+BLOCK_SIZE+this.radius, y+i);
-          if(right<=this.radius){
-            return true;
-        }
-      }
-      return false;
-    }
 }//Ball

@@ -18,5 +18,13 @@ class Paddle {
   void move(int x) {
     px = x;
   }//move
-
-}//Paddle
+  
+  boolean onPaddle(Ball b) {
+    if (px <= b.cx && b.cx <= px + PADDLE_WIDTH && py < b.cy+b.radius)
+        return true;
+    else
+        return false;
+    }
+  }
+  
+//Paddle

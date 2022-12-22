@@ -23,6 +23,8 @@ class Block {
   
   void display() {
     if(this.alive) {
+      fill(125,255,21,100);
+      stroke(#21FFF2, 240);
       square(bx,by, bwidth);
     }
   }
@@ -30,7 +32,18 @@ class Block {
   void destroy() {
     this.alive = false;
     getScoreValue();
-    println(score);
+  }
+  
+  boolean onBlock(Ball b) {
+    if(bx<b.cx + b.radius/2 &&
+      bx + BLOCK_SIZE > b.cx + b.radius/2 &&
+      by + BLOCK_SIZE > b.cy - b.radius/2 &&
+      by < b.cy + b.radius/2) {
+        return true;
+      } //<>//
+    else {
+      return false;
+    }
   }
   
   int getScoreValue() {

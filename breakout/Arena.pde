@@ -13,7 +13,7 @@ class Arena {
     for (int r=0; r<grid.length; r++) {
       for(int i=0; i<grid[r].length; i++) { 
         // set bx and by for each block
-        grid[r][i] = new Block(r*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE); 
+        grid[r][i] = new Block(r*BLOCK_SIZE, 75 + i*BLOCK_SIZE, BLOCK_SIZE); 
       }
     } 
   }
@@ -21,20 +21,14 @@ class Arena {
   void checkBlock() {
     for (int r=0; r<grid.length; r++) {
       for(int i=0; i<grid[r].length; i++) {
-        grid[r][i].display(); // to display each block
-        if(b1.onBlock(grid[r][i].bx, grid[r][i].by)) {
+        grid[r][i].display();// to display each block
+        if(grid[r][i].onBlock(b1)) {
           if(grid[r][i].alive) {
-            b1.blockBounce(0);
+            b1.blockBounce();
             grid[r][i].destroy();
           }
         }
-        else if(b1.onBlockSide(grid[r][i].bx, grid[r][i].by)) {
-           if(grid[r][i].alive) {
-             b1.blockBounce(1);
-             grid[r][i].destroy();
         }
-      }
-     }
     }
    }
    
