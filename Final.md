@@ -20,20 +20,21 @@
 
 ### Features
 
-- there is a menu which allows you to choose difficulty
 - there are lives and a life counter
 - there are scores and a score counter
-- Ball(int x, int y, int speed) creates a ball when the game resets, and it doesnt change the angle the ball is moving at
-- paddleBounce() checks if the ball is hitting the paddle and where, so that it can make the apporpiate chnages to how the ball moves.
-- reset() resets the color and makes the block function 
-- destroy() removes the block from the game and updates the score
-- onBlock() checks if the ball is hitting the block 
-- blockBounce() chooses how the ball bounces off the block depending on where it hits
+- The ball bounces off the paddle at a different angle based on exactly where it hits
+- Ball bounces off the block based on whether it hits the top, bottom, left and right
 - there is a menu, where you can start to play
+- In the menu, there is an animation of balls moving for visual effect
 - there is a place where you can choose your difficulty
 - there is a screen if you won
 - there is a screen if you lost
-- multiple blocks can be destoryed if a ball hits 2 blocks at once
+- multiple blocks can be destroyed if a ball hits 2 blocks at once
+- There are 3 levels (easy, medium, hard)
+  - Easy: Low ball speed, 5 lives
+  - Medium: Ball is a little bit faster, 3 lives
+  - Hard: Different setup (blocks are placed differently), ball is very fast, 2 lives
+- 
 
 
 ---
