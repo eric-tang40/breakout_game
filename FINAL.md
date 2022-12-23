@@ -22,38 +22,49 @@
 
 ### Features
 
-- there are lives and a life counter
-- there are scores and a score counter
+- There are lives and a life counter
+- There is a score and a score counter
 - The ball bounces off the paddle at a different angle based on exactly where it hits
 - The ball bounces off the block based on whether it hits the top, bottom, left and right
-- there is a menu, where you can start to play
+- There is a menu that welcomes you to the game
 - In the menu, there is an animation of balls moving for visual effect
-- there is a place where you can choose your difficulty
-- there is a screen if you won
-- there is a screen if you lost
-- multiple blocks can be destroyed if a ball hits 2 blocks at once
+- There is a place where you can choose your difficulty
 - There are 3 levels (easy, medium, hard)
-  - Easy: Low ball speed, 5 lives
-  - Medium: Ball is a little bit faster, 3 lives
-  - Hard: Different setup (blocks are placed differently), the ball is very fast, 2 lives
--
+  - Easy: Low ball speed, 5 lives, larger paddle surface
+  - Medium: Ball is a little bit faster, 3 lives, smaller paddle surface
+  - Hard: The ball is fast, 1 life, very small paddle surface
+- There is a screen if you won
+- There is a screen if you lost
+- Multiple blocks can be destroyed if a ball hits 2 or more blocks at once
+- Blocks have more health based on the level of difficulty
+- Paddle is smaller based on the level of difficulty
+- Block changes color as its health decreases (from bright to dull)
 
 ---
 
 ### Changes
 What changed about your game after the design phase? Separate changes that occurred after the feedback round and changes that occurred during programming.
 
-- we added a menu
-- you can change your difficulty
-- we added easy, medium, and hard mode
-- we changed the color of the block and balls
-- we added a win and lose screen
-- we changed the way the ball bounced off the block
-- we changed the way the ball bounced off the paddle
-- we added lives and a life counter to the screen
-- we added a score counter to the screen
-- we changed the color of the ball and bricks to a lime green color
-- we changed the color of the background when the game is playing to grey
-- we changed the outline of the blocks to light blue
-- we added animation and a welcome screen
-- we added an arena creates multiple blocks and we put them lower on the screen.
+- During Programming
+  - we added a menu and a menu class to control it
+  - we allowed the user to change their difficulty
+  - we added easy, medium, and hard mode
+  - we changed the color of the block and balls
+  - we added a win and lose screen
+  - we changed the way the ball bounced off the block
+  - we changed the way the ball bounced off the paddle
+  - we added a score counter to the screen
+  - we changed the color of the ball and bricks to a lime green color
+  - we changed the color of the background when the game is playing to grey
+  - we changed the outline of the blocks, ball, and paddle to light blue
+  - we added animation and a welcome screen
+  - we changed the layout of the blocks to center the blocks 
+  - we added margins between blocks
+  - we displayed the score, level, and lives on the top of the screen 
+- After Feedback Round
+  - we added lives and a life counter to the screen
+  - we changed the paddle movement to be controlled by the mouse instead of the keyboard
+  - we made the spacebar the "begin" command
+  - we added block health with the color of the block changing as it got hit more
+  - we added a 2d array that creates multiple rows of blocks 
+  - we changed the size of the paddle as the difficulty increased
