@@ -6,7 +6,7 @@ int columns = 4;
 int BLOCK_SIZE = 100;
 int score = 0;
 int side = 0;
-int numBlocks = 2;//rows * columns;
+int numBlocks = rows * columns;
 int lives = 4;
 int curLevel = 0;
 boolean isMenu;
@@ -16,7 +16,7 @@ boolean isPlaying;
 boolean isWon;
 boolean isLost;
 Paddle p;
-Ball b1; 
+Ball b1, b2; 
 Menu m;
 Arena a;
 
@@ -30,6 +30,7 @@ void setup() {
   size(1000,700);
   p = new Paddle();
   b1 = new Ball();
+  b2 = new Ball();
   a = new Arena(rows, columns);
 }
 
@@ -86,7 +87,7 @@ void draw() {
     b1.display();
     b1.move();
     if(p.onPaddle(b1)) {
-      b1.paddleBounce();
+      b1.paddleBounce(b1);
     }
     a.checkBlock();
     fill(0);
@@ -104,10 +105,11 @@ void draw() {
     background(#979896);
     p.display();
     p.move(mouseX - PADDLE_WIDTH/2);
-    b1.display();
-    b1.move();
-    if(p.onPaddle(b1)) {
-      b1.paddleBounce();
+    b2.display();
+    b2.changeSpeed(17);
+    b2.move();
+    if(p.onPaddle(b2)) {
+      b2.paddleBounce(b2);
     }
     a.checkBlock();
     fill(0);
@@ -128,7 +130,7 @@ void draw() {
     b1.display();
     b1.move();
     if(p.onPaddle(b1)) {
-      b1.paddleBounce();
+      b1.paddleBounce(b1);
     }
     a.checkBlock();
     fill(0);
@@ -145,7 +147,12 @@ void draw() {
 
 void keyPressed() {
   if(key == ' ' && curPlaying == false) {
-    b1.run();
+    if(curLevel == 1) {
+      b1.run();
+    }
+    else if(curLevel == 2) {
+      b2.run();
+    }
   }
 }
 
@@ -187,11 +194,16 @@ void mousePressed() {
       lives = 3;
     }
     if(isWon) {
-      numBlocks = 2;
+      numBlocks = rows * columns;
       isWon = false;
       isDiff = true;
       a.reset();
-      b1.reset();
+      if(curLevel == 1) {
+        b1.reset();
+      }
+      else if(curLevel == 2) {
+        b2.reset();
+      }
       curPlaying = false;
     }
   }

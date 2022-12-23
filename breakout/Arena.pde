@@ -22,10 +22,20 @@ class Arena {
     for (int r=0; r<grid.length; r++) {
       for(int i=0; i<grid[r].length; i++) {
         grid[r][i].display();// to display each block
-        if(grid[r][i].onBlock(b1)) {
-          if(grid[r][i].alive) {
-            grid[r][i].blockBounce();
-            grid[r][i].destroy();
+        if(curLevel == 1) {
+          if(grid[r][i].onBlock(b1)) {
+            if(grid[r][i].alive) {
+              grid[r][i].blockBounce(b1);
+              grid[r][i].destroy(b1);
+            }
+          }
+        }
+        if(curLevel == 2) {
+          if(grid[r][i].onBlock(b2)) {
+            if(grid[r][i].alive) {
+              grid[r][i].blockBounce(b2);
+              grid[r][i].destroy(b2);
+            }
           }
         }
         }
