@@ -32,13 +32,14 @@ class Block {
   void destroy() {
     this.alive = false;
     getScoreValue();
+    numBlocks -=1;
   }
   
   boolean onBlock(Ball b) {
-    if(bx < b.cx + b.radius/2 &&
-      bx + BLOCK_SIZE > b.cx + b.radius/2 &&
-      by + BLOCK_SIZE > b.cy - b.radius/2 &&
-      by < b.cy + b.radius/2) {
+    if(bx <= b.cx + b.radius &&
+      bx + BLOCK_SIZE >= b.cx  &&
+      by + BLOCK_SIZE +b.radius/2>= b.cy - b.radius &&
+      by <= b.cy + b.radius) {
         return true;
       } //<>//
     else {
@@ -54,28 +55,30 @@ class Block {
          println("hit bottom");
          b1.yvelocity *= -1;
       }
-    else if(b1.cx >= bx + BLOCK_SIZE/2 
-       && b1.cy >= by
-       && b1.cy <= by +BLOCK_SIZE
-       && alive){
-         println("hit right");
-         b1.xvelocity *= -1;
-      }
-     else if(b1.cx<= bx + BLOCK_SIZE/2 
-       && b1.cy >= by
-       && b1.cy <= by +BLOCK_SIZE
-       && alive){
-         println("hit left");
-         b1.xvelocity *= -1;
-      }
-     else if(b1.cx >= bx  //FIX 3FIX
+    //else if(b1.cx >= bx + BLOCK_SIZE/2 
+    //   && b1.cy - b1.radius/2>= by
+    //   && b1.cy + b1.radius/2<= by +BLOCK_SIZE
+    //   && alive){
+    //     println("hit right");
+    //     b1.xvelocity *= -1;
+    //  }
+    // else if(b1.cx<= bx + BLOCK_SIZE/2 
+    //   && b1.cy - b1.radius/2 >= by
+    //   && b1.cy + b1.radius/2<= by +BLOCK_SIZE
+    //   && alive){
+    //     println("hit left");
+    //     b1.xvelocity *= -1;
+    //  }
+     else if(b1.cx >= bx
        && b1.cx <= bx+BLOCK_SIZE
-       && b1.cy - b1.radius/2 <= by - b1.radius/2
-       && b1.cy >= by + b1.radius
+       && b1.cy - b1.radius/2 <= by
        && alive){
          println("hit top"); 
          b1.yvelocity *= -1;
       }
+     else {
+      b1.xvelocity *= -1;
+     }
   }//ybounce
   
   int getScoreValue() {

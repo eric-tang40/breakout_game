@@ -26,7 +26,8 @@ class Ball {
     cy = height-150;
     xvelocity = 0; 
     yvelocity = 0;
-    d = 135;
+    d = 0;
+    lives -=1;
   }//resetBall
   
   void run() {
@@ -51,11 +52,13 @@ class Ball {
     }
     if(cy >= (p.py + this.radius/2)) {
       this.reset();
-      a.reset();
-      isLost = true;
-      isPlaying = false;
       curPlaying = false;
-      score = 0;
+      if(lives == 0) {
+        a.reset();
+        isLost = true;
+        isPlaying = false;
+        score = 0;
+      }
     }
     cx+= xvelocity;
     cy+= yvelocity;
