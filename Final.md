@@ -36,7 +36,6 @@
   - Hard: Different setup (blocks are placed differently), ball is very fast, 2 lives
 - 
 
-
 ---
 
 ### Changes
@@ -44,5 +43,14 @@ What changed about your game after the design phase? Separate changes that occur
 
 - we added a menu
 - you can change your difficulty
+- we added a easy, medium, and hard mode
 - we changed the color of the block and balls
 - we added a win and lose screen
+- we changed the way the ball bounced off the block
+- we changed the way the ball bounced off the paddle
+- we added lives and a life counter to the screen
+- we added a score counter to the screen
+- we chanegd the color of the ball and bricks to a lime green color
+- we chanegd the color of the background when the game is playing to grey
+- we chanegd the outline of the blocks to light blue
+- we added an animation and a welcome screen
