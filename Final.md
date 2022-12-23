@@ -33,6 +33,8 @@
 - there is a place where you can choose your difficulty
 - there is a screen if you won
 - there is a screen if you lost
+- multiple blocks can be destoryed if a ball hits 2 blocks at once
+
 
 ---
 
