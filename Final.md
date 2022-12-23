@@ -20,7 +20,19 @@
 
 ### Features
 
-- 
+- there is a menu which allows you to choose dificulty
+- there are lives and a life counter
+- there are scores and a score counter
+- There is a paddle
+-- you can bounce the ball off the paddle
+-- it moves with mouseX-PADDLE_WIDTH/2
+-- there is a paddle display which displays the paddle
+- there is a ball
+-- ball() creares a ball used at the start of the game
+-- Ball(int x, int y, int speed) creates a ball when the game resets, and it doesnt change the angle the ball is moving at
+-- run() makes the ball move
+-- display() displays the ball on the screen
+-- 
 
 
 ---
