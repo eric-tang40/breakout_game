@@ -28,7 +28,9 @@ class Ball {
     yvelocity = 0;
     d = 0;
     lives -=1;
-    numBlocks = rows * columns;
+    if(lives == 0) {
+      numBlocks = rows * columns;
+    }
   }//resetBall
   
   void changeSpeed(int x) {
@@ -59,7 +61,10 @@ class Ball {
       this.reset();
       curPlaying = false;
       if(lives == 0) {
+        increased2 = false;
+        increased3 = false;
         a.reset();
+        a3.reset();
         isLost = true;
         isPlaying = false;
         score = 0;
@@ -72,20 +77,20 @@ class Ball {
   void paddleBounce(Ball b) {
     float distance;
     float angle;
-    if(b.cx > p.px && b.cx < p.px + PADDLE_WIDTH/2) {
+    if(b.cx > p.px && b.cx < p.px + p.pwidth/2) {
       distance = b.cx- p.px;
-      angle = -0.6 * distance + 135;
+      angle = -0.6 * distance + 136;
       xvelocity = xspeed * cos(radians(angle));
       yvelocity = xspeed * sin(radians(angle));
     }
-    else if (b.cx > p.px + PADDLE_WIDTH/2 && b.cx < p.px + PADDLE_WIDTH) {
-      distance = (b.cx-PADDLE_WIDTH/2)- p.px; //distance between middle of paddle and ball
-      angle = -0.643 * distance + 90;
+    else if (b.cx > p.px + p.pwidth/2 && b.cx < p.px + p.pwidth) {
+      distance = (b.cx-p.pwidth/2)- p.px; //distance between middle of paddle and ball
+      angle = -0.643 * distance + 89;
       xvelocity = xspeed * cos(radians(angle));
       yvelocity = xspeed * sin(radians(angle));
     }
     else { 
-      angle = 90;
+      angle = 89;
       xvelocity = xspeed * cos(radians(angle));
       yvelocity = xspeed * sin(radians(angle));
     }
