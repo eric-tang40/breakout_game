@@ -56,3 +56,4 @@ What changed about your game after the design phase? Separate changes that occur
 - we changed the color of the background when the game is playing to grey
 - we changed the outline of the blocks to light blue
 - we added animation and a welcome screen
+- we added an arena creates multiple blocks and we put them lower on the screen.
