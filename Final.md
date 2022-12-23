@@ -1,18 +1,26 @@
 # Project 01 For NeXT CS
-### Class Period:
-### Name0: YOUR NAME HERE
-### Name1: OTHER NAME HERE (delete this line if you are working solo)
-#### Selected Game: YOUR GAME HERE
+### Class Period:4
+### Name0: Eric Tang
+### Name1: Jonathan Yap
+#### Selected Game: Breakout
 ---
 
 ### How To Play
-Explain how to play your game. Include any keyboard and/or mouse commands, game objectives, etc.
 
+- Click on the Welcome Screen to Continue
+- Select Your Difficulty by Clicking on a Square
+- Press Space to Get the Ball Moving
+- Use your Mouse to Move the Paddle
+- Destroy all the Blocks by Bouncing the Ball off of them
+- Don't let the Ball get Below the Paddle
+- You win once all the Blocks are Destroyed
+- If you win or lose, click to Play Again
 
 ---
 
 ### Features
-List all the game features you were able to implelment.
+
+- 
 
 
 ---
